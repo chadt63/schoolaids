@@ -48,6 +48,8 @@ class CustomCartForms(WebsiteSale):
                     linked_line_id=value.get('line_id')
                 )
         except:
+            pass
+        else:
             errors.append('error');
         try:
             product = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
@@ -80,5 +82,7 @@ class CustomCartForms(WebsiteSale):
                     linked_line_id=value.get('line_id')
                 )
         except:
+            pass
+        else:
             errors.append('error');
         return str(order.cart_quantity)
