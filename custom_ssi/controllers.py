@@ -45,11 +45,11 @@ class CustomCartForms(WebsiteSale):
             pass
 
         try:
-            productTwo = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
-            if productTwo:
+            product = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
+            if product:
                 optional_product_ids = []
-                if hasattr(productTwo, 'optional_product_ids'):
-                    option_ids = productTwo.optional_product_ids.mapped('product_variant_ids').ids
+                if hasattr(product, 'optional_product_ids'):
+                    option_ids = product.optional_product_ids.mapped('product_variant_ids').ids
                     for k, v in kw.items():
                         if "optional-product-" in k and int(kw.get(k.replace("product", "add"))) and int(v) in option_ids:
                             optional_product_ids.append(int(v))
@@ -76,4 +76,4 @@ class CustomCartForms(WebsiteSale):
                     )
         except Exception:
             pass
-        return str(order.cart_quantity)
+        return werkzeug.utils.redirect('/shop/cart')
