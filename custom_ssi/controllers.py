@@ -12,7 +12,6 @@ class CustomCartForms(WebsiteSale):
         if lang:
             request.website = request.website.with_context(lang=lang)
         order = request.website.sale_get_order(force_create=1)
-        errors = [];
         try:
             product = request.env['product.product'].search([('default_code', '=', product_iref_1)], limit=1)
             if product:
