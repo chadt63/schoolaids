@@ -48,7 +48,7 @@ class CustomCartForms(WebsiteSale):
                     linked_line_id=value.get('line_id')
                 )
         except Exception:
-            continue
+            pass
 
         try:
             product = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
@@ -81,5 +81,5 @@ class CustomCartForms(WebsiteSale):
                     linked_line_id=value.get('line_id')
                 )
         except Exception:
-            continue
+            pass
         return str(order.cart_quantity)
