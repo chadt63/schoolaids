@@ -20,7 +20,7 @@ class CustomCartForms(WebsiteSale):
         product = request.env['product.product'].search([('default_code', '=', product_iref_1)], limit=1)
 
         optional_product_ids = []
-        if product.optional_product_ids:
+        if hasattr(product, 'optional_product_ids'):
             option_ids = product.optional_product_ids.mapped('product_variant_ids').ids
             for k, v in kw.items():
                 if "optional-product-" in k and int(kw.get(k.replace("product", "add"))) and int(v) in option_ids:
@@ -50,7 +50,7 @@ class CustomCartForms(WebsiteSale):
         product = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
 
         optional_product_ids = []
-        if product.optional_product_ids:
+        if hasattr(product, 'optional_product_ids'):
             option_ids = product.optional_product_ids.mapped('product_variant_ids').ids
             for k, v in kw.items():
                 if "optional-product-" in k and int(kw.get(k.replace("product", "add"))) and int(v) in option_ids:
