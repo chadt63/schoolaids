@@ -37,15 +37,7 @@ class CustomCartForms(WebsiteSale):
                 attributes=attributes,
                 optional_product_ids=optional_product_ids
             )
-        else:
-            value = order._cart_update(
-                product_id=int(product.id),
-                add_qty=int(1),
-                set_qty=int(set_qty),
-                attributes=attributes,
-                optional_product_ids=optional_product_ids
-            )
-            
+
         # options have all time the same quantity
         for option_id in optional_product_ids:
             order._cart_update(
@@ -67,18 +59,10 @@ class CustomCartForms(WebsiteSale):
         attributes = self._filter_attributes(**kw)
 
         value = {}
-        if add_qty_1 or set_qty:
+        if add_qty_2 or set_qty:
             value = order._cart_update(
                 product_id=int(product.id),
-                add_qty=int(add_qty_1),
-                set_qty=int(set_qty),
-                attributes=attributes,
-                optional_product_ids=optional_product_ids
-            )
-        else:
-            value = order._cart_update(
-                product_id=int(product.id),
-                add_qty=int(1),
+                add_qty=int(add_qty_2),
                 set_qty=int(set_qty),
                 attributes=attributes,
                 optional_product_ids=optional_product_ids
