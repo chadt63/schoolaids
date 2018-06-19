@@ -1,6 +1,8 @@
 from odoo import http
 from odoo.http import request
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+from werkzeug.routing import Map, Rule, NotFound, RequestRedirect
+import werkzeug
 
 class CustomCartForms(WebsiteSale):
 
@@ -76,4 +78,5 @@ class CustomCartForms(WebsiteSale):
                     )
         except Exception:
             pass
+        # return str(order.cart_quantity)
         return werkzeug.utils.redirect('/shop/cart')
