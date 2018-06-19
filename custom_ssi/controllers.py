@@ -144,5 +144,4 @@ class CustomCartForms(WebsiteSale):
                     )
         except Exception:
             pass
-        # return str(order.cart_quantity)
         return werkzeug.utils.redirect('/shop/cart')
