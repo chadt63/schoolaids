@@ -45,6 +45,7 @@ class CustomCartForms(WebsiteSale):
                 attributes=attributes,
                 optional_product_ids=optional_product_ids
             )
+            
         # options have all time the same quantity
         for option_id in optional_product_ids:
             order._cart_update(
