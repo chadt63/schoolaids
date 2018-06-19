@@ -13,7 +13,7 @@ class CustomCartForms(WebsiteSale):
             request.website = request.website.with_context(lang=lang)
         order = request.website.sale_get_order(force_create=1)
         try:
-            product = request.env['product.product'].search([('default_code', '=', product_iref_1)], limit=1)
+            product = request.env['product.product'].search([('default_code', '=', product_iref_1.upper())], limit=1)
             if product:
                 optional_product_ids = []
                 if hasattr(product, 'optional_product_ids'):
@@ -46,7 +46,7 @@ class CustomCartForms(WebsiteSale):
             pass
 
         try:
-            product = request.env['product.product'].search([('default_code', '=', product_iref_2)], limit=1)
+            product = request.env['product.product'].search([('default_code', '=', product_iref_2.upper())], limit=1)
             if product:
                 optional_product_ids = []
                 if hasattr(product, 'optional_product_ids'):
@@ -79,7 +79,7 @@ class CustomCartForms(WebsiteSale):
             pass
 
         try:
-            product = request.env['product.product'].search([('default_code', '=', product_iref_3)], limit=1)
+            product = request.env['product.product'].search([('default_code', '=', product_iref_3.upper())], limit=1)
             if product:
                 optional_product_ids = []
                 if hasattr(product, 'optional_product_ids'):
@@ -112,7 +112,7 @@ class CustomCartForms(WebsiteSale):
             pass
 
         try:
-            product = request.env['product.product'].search([('default_code', '=', product_iref_4)], limit=1)
+            product = request.env['product.product'].search([('default_code', '=', product_iref_4.upper())], limit=1)
             if product:
                 optional_product_ids = []
                 if hasattr(product, 'optional_product_ids'):
