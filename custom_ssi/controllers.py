@@ -4,11 +4,11 @@ from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 class CustomCartForms(WebsiteSale):
 
-    @http.route(['/shop/product/<model("product.template"):product>'], type='http', auth="public", website=True)
-    def product(self, product, category='', search='', **kwargs):
-        r = super(WebsiteSaleOptions, self).product(product, category, search, **kwargs)
-        r.qcontext['optional_product_ids'] = map(lambda p: p.with_context({'active_id': p.id}), product.optional_product_ids)
-        return r
+    # @http.route(['/shop/product/<model("product.template"):product>'], type='http', auth="public", website=True)
+    # def product(self, product, category='', search='', **kwargs):
+    #     r = super(WebsiteSaleOptions, self).product(product, category, search, **kwargs)
+    #     r.qcontext['optional_product_ids'] = map(lambda p: p.with_context({'active_id': p.id}), product.optional_product_ids)
+    #     return r
 
     @http.route(['/shop/cart/custom_cart'], type='http', auth="public", methods=['POST'], website=True, multilang=False)
     def cart_update_custom(self, product_iref_1, add_qty_1, product_iref_2, add_qty_2, set_qty=0, goto_shop=None, lang=None, **kw):
